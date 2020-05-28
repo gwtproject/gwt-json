@@ -26,7 +26,6 @@ class JSONValueFactory {
 
   static JSONValue create(Object value) {
     String type = Js.typeof(value);
-    DomGlobal.console.log("type: >>" + type + "<<");
     switch (type) {
       case "boolean":
         return JSONBoolean.getInstance((Boolean) value);

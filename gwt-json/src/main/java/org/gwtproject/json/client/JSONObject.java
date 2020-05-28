@@ -16,6 +16,7 @@
 package org.gwtproject.json.client;
 
 import elemental2.core.Global;
+import elemental2.core.JsArray;
 import elemental2.core.JsObject;
 import java.util.AbstractSet;
 import java.util.Arrays;
@@ -182,11 +183,13 @@ public class JSONObject extends JSONValue {
   }
 
   private String[] computeKeys() {
-    String[] keys = JsObject.keys(jsObject);
+    JsArray<String> keys = JsObject.keys(jsObject);
     String[] computedKeys = new String[0];
-    int i = 0;
-    for (String key : keys) {
-      if (jsObject.hasOwnProperty(key)) computedKeys[i++] = key;
+    for (int i = 0; i < keys.length; i++) {
+      String key = keys.getAt(i);
+      if (jsObject.hasOwnProperty(key)) {
+        computedKeys[computedKeys.length] = key;
+      }
     }
     return computedKeys;
   }

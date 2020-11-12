@@ -8,7 +8,7 @@
     <packaging>gwt-lib</packaging>
 
     <name>GWT JSON</name>
-    <description>TBD</description>
+    <description>Classes for parsing and creating JSON encoded values. These classes parse strings of JSON encoded values into Java accessible objects. They also support programmatically building JSON strings.</description>
     <url>https://github.com/gwtproject/gwt-json</url>
     <organization>
         <name>The GWT Authors</name>

@@ -19,7 +19,6 @@ import static java.util.Objects.nonNull;
 
 import elemental2.core.JsArray;
 import elemental2.core.JsObject;
-import elemental2.dom.DomGlobal;
 import jsinterop.base.Js;
 
 class JSONValueFactory {

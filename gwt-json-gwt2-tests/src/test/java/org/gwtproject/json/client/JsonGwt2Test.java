@@ -112,7 +112,7 @@ public class JsonGwt2Test extends GWTTestCase {
   /** Returns the module name for GWT unit test running. */
   @Override
   public String getModuleName() {
-    return "org.gwtproject.json.Json";
+    return "org.gwtproject.json.JSON";
   }
 
   public void testArrayBasics() {

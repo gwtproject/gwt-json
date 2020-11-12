@@ -2,57 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.gwtproject.json</groupId>
+    <parent>
+        <groupId>org.gwtproject.json</groupId>
+        <artifactId>gwt-json-parent</artifactId>
+        <version>dev</version>
+    </parent>
     <artifactId>gwt-json</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>gwt-lib</packaging>
 
     <name>GWT JSON</name>
     <description>Classes for parsing and creating JSON encoded values. These classes parse strings of JSON encoded values into Java accessible objects. They also support programmatically building JSON strings.</description>
-    <url>https://github.com/gwtproject/gwt-json</url>
-    <organization>
-        <name>The GWT Authors</name>
-        <url>https://github.com/gwtproject</url>
-    </organization>
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>The GWT Authors</name>
-            <organization>The GWT Project Authors</organization>
-            <url>https://github.com/gwtproject</url>
-        </developer>
-    </developers>
-
-    <scm>
-        <connection>scm:git:git://github.com/gwtproject/gwt-json.git</connection>
-        <developerConnection>scm:git:ssh://github.com/gwtproject/gwt-json.git</developerConnection>
-        <url>https://github.com/gwtproject/gwt-json/tree/master</url>
-    </scm>
-
-    <inceptionYear>2019</inceptionYear>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
-        <maven.compiler.plugin>3.7.0</maven.compiler.plugin>
-        <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
         <maven.gpg.plugin>1.6</maven.gpg.plugin>
         <maven.gwt.plugin>1.0.0</maven.gwt.plugin>
         <maven.javadoc.plugin>3.1.1</maven.javadoc.plugin>
-        <maven.licence.plugin>3.0</maven.licence.plugin>
         <maven.source.plugin>3.2.1</maven.source.plugin>
-
-        <gwt.core.version>1.0-SNAPSHOT</gwt.core.version>
     </properties>
 
     <dependencies>
@@ -71,60 +37,11 @@
                 <version>${maven.gwt.plugin}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <moduleName>org.gwtproject.json.Json</moduleName>
+                    <moduleName>org.gwtproject.json.JSON</moduleName>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>${maven.licence.plugin}</version>
-                <configuration>
-                    <header>LICENSE.header</header>
-                    <encoding>UTF-8</encoding>
-                    <skipExistingHeaders>true</skipExistingHeaders>
-                    <mapping>
-                        <java>SLASHSTAR_STYLE</java>
-                    </mapping>
-                    <excludes>
-                        <exclude>**/README.md</exclude>
-                        <exclude>**/LICENSE</exclude>
-                        <exclude>**/LICENSE.header</exclude>
-                        <exclude>**/AUTHORS</exclude>
-                        <exclude>**/*.xml</exclude>
-                        <exclude>src/test/resources/**</exclude>
-                        <exclude>src/main/resources/**</exclude>
-                    </excludes>
-                    <properties>
-                        <year>${project.inceptionYear}</year>
-                        <name>${project.organization.name}</name>
-                    </properties>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${maven.deploy.plugin}</version>
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
     <profiles>
         <!-- release profile to create sources, javadoc, and sign all artifacts before uploading -->
@@ -172,6 +89,14 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>${maven.deploy.plugin}</version>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

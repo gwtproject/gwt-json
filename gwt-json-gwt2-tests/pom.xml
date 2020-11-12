@@ -6,59 +6,19 @@
     <parent>
         <groupId>org.gwtproject.json</groupId>
         <artifactId>gwt-json-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>dev</version>
     </parent>
     <artifactId>gwt-json-gwt2-tests</artifactId>
     <packaging>gwt-lib</packaging>
 
     <name>GWT Json GWT 2 Tests</name>
     <description>Test cases for the GWT 2 tests</description>
-    <url>https://github.com/gwtproject/gwt-json</url>
-
-    <organization>
-        <name>The GWT Authors</name>
-        <url>https://github.com/gwtproject</url>
-    </organization>
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>The GWT Authors</name>
-            <organization>The GWT Project Authors</organization>
-            <url>https://github.com/gwtproject</url>
-        </developer>
-    </developers>
-
-    <scm>
-        <connection>scm:git:git://github.com/gwtproject/gwt-json.git</connection>
-        <developerConnection>scm:git:ssh://github.com/gwtproject/gwt-json.git</developerConnection>
-        <url>https://github.com/gwtproject/gwt-json/tree/master</url>
-    </scm>
-
-    <inceptionYear>2019</inceptionYear>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
-        <maven.compiler.plugin>3.7.0</maven.compiler.plugin>
-        <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
         <maven.gwt.plugin>1.0.0</maven.gwt.plugin>
-        <maven.install.plugin>3.0.0-M1</maven.install.plugin>
-        <maven.jar.plugin>3.1.2</maven.jar.plugin>
-        <maven.licence.plugin>3.0</maven.licence.plugin>
-        <maven.source.plugin>3.1.0</maven.source.plugin>
 
         <gwt.version>2.9.0</gwt.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
     <dependencies>
@@ -80,6 +40,13 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.gwtproject.json</groupId>
+            <artifactId>gwt-json</artifactId>
+            <version>${revision}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -93,10 +60,6 @@
                     <failOnError>true</failOnError>
                     <moduleName>org.gwtproject.json.JsonGwt2Test</moduleName>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
